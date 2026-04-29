@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.installed.cfg
+*.egg
+build/
+dist/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv/
+.venv-py312/
+venv/
+venv-py312/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project runtime
+data/*.db
+data/*.db-journal
+logs/*.log
+*.wav
+*.raw
+
+# Local secrets / overrides
+.env
+.env.local
+.claude/settings.local.json
+
+# Models (downloaded at install time, not committed)
+assets/models/whisper/*
+assets/models/piper/*
+assets/models/speechbrain/*
+assets/models/wakeword/*
+!assets/models/**/.gitkeep
+
+# Pytest + coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# MyPy
+.mypy_cache/

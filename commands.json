@@ -1,0 +1,184 @@
+{
+  "open firefox": {
+    "exec": "firefox",
+    "feedback": "Opening Firefox.",
+    "blocking": true
+  },
+  "open chrome": {
+    "exec": "google-chrome-stable",
+    "feedback": "Opening Chrome.",
+    "blocking": true
+  },
+  "open terminal": {
+    "exec": "gnome-terminal",
+    "feedback": "Opening terminal.",
+    "blocking": true
+  },
+  "open files": {
+    "exec": "nautilus",
+    "feedback": "Opening Files.",
+    "blocking": true
+  },
+  "open file manager": {
+    "exec": "nautilus",
+    "feedback": "Opening file manager.",
+    "blocking": true
+  },
+  "open settings": {
+    "exec": "gnome-control-center",
+    "feedback": "Opening settings.",
+    "blocking": true
+  },
+  "open system settings": {
+    "exec": "gnome-control-center",
+    "feedback": "Opening system settings.",
+    "blocking": true
+  },
+  "open calculator": {
+    "exec": "gnome-calculator",
+    "feedback": "Opening calculator.",
+    "blocking": true
+  },
+  "open text editor": {
+    "exec": "gnome-text-editor",
+    "feedback": "Opening text editor.",
+    "blocking": true
+  },
+  "open software center": {
+    "exec": "gnome-software",
+    "feedback": "Opening software center.",
+    "blocking": true
+  },
+  "open spotify": {
+    "exec": "flatpak run com.spotify.Client",
+    "feedback": "Opening Spotify.",
+    "blocking": true
+  },
+  "open discord": {
+    "exec": "flatpak run com.discordapp.Discord",
+    "feedback": "Opening Discord.",
+    "blocking": true
+  },
+  "open visual studio code": {
+    "exec": "code",
+    "feedback": "Opening VS Code.",
+    "blocking": true
+  },
+  "open vs code": {
+    "exec": "code",
+    "feedback": "Opening VS Code.",
+    "blocking": true
+  },
+  "close firefox": {
+    "exec": "pkill -f firefox",
+    "feedback": "Closing Firefox.",
+    "blocking": false
+  },
+  "close chrome": {
+    "exec": "pkill -f chrome",
+    "feedback": "Closing Chrome.",
+    "blocking": false
+  },
+  "close terminal": {
+    "exec": "pkill -f gnome-terminal",
+    "feedback": "Closing terminal.",
+    "blocking": false
+  },
+  "close spotify": {
+    "exec": "pkill -f spotify",
+    "feedback": "Closing Spotify.",
+    "blocking": false
+  },
+  "take a screenshot": {
+    "exec": "gnome-screenshot",
+    "feedback": "Taking a screenshot.",
+    "blocking": true
+  },
+  "screenshot": {
+    "exec": "gnome-screenshot",
+    "feedback": "Screenshot taken.",
+    "blocking": true
+  },
+  "lock the screen": {
+    "exec": "loginctl lock-session",
+    "feedback": "Locking the screen.",
+    "blocking": true
+  },
+  "lock screen": {
+    "exec": "loginctl lock-session",
+    "feedback": "Locking.",
+    "blocking": true
+  },
+  "volume up": {
+    "exec": "pactl set-sink-volume @DEFAULT_SINK@ +10%",
+    "feedback": "Volume up.",
+    "blocking": false
+  },
+  "volume down": {
+    "exec": "pactl set-sink-volume @DEFAULT_SINK@ -10%",
+    "feedback": "Volume down.",
+    "blocking": false
+  },
+  "mute": {
+    "exec": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "feedback": "Toggling mute.",
+    "blocking": false
+  },
+  "unmute": {
+    "exec": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "feedback": "Unmuting.",
+    "blocking": false
+  },
+  "brightness up": {
+    "exec": "brightnessctl set +10%",
+    "feedback": "Brightness up.",
+    "blocking": false
+  },
+  "brightness down": {
+    "exec": "brightnessctl set 10%-",
+    "feedback": "Brightness down.",
+    "blocking": false
+  },
+  "shutdown": {
+    "exec": "shutdown -h +1",
+    "feedback": "Shutting down in one minute.",
+    "blocking": true
+  },
+  "restart": {
+    "exec": "reboot",
+    "feedback": "Restarting.",
+    "blocking": true
+  },
+  "show desktop": {
+    "exec": "wmctrl -k on",
+    "feedback": "Showing desktop.",
+    "blocking": false
+  },
+  "open youtube": {
+    "exec": "xdg-open https://www.youtube.com",
+    "feedback": "Opening YouTube.",
+    "blocking": true
+  },
+  "open github": {
+    "exec": "xdg-open https://www.github.com",
+    "feedback": "Opening GitHub.",
+    "blocking": true
+  },
+  "open google": {
+    "exec": "xdg-open https://www.google.com",
+    "feedback": "Opening Google.",
+    "blocking": true
+  },
+  "what time is it": {
+    "exec": "",
+    "feedback": "",
+    "blocking": false,
+    "builtin": "get_time"
+  },
+  "what is the time": {
+    "exec": "",
+    "feedback": "",
+    "blocking": false,
+    "builtin": "get_time"
+  }
+}

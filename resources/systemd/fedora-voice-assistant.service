@@ -1,0 +1,15 @@
+[Unit]
+Description=Fedora Voice Assistant Daemon
+After=graphical-session.target pipewire.service
+Requires=pipewire.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/FACULTATE/LICENTA/LICENTA_APLICATIE/main.py
+WorkingDirectory=%h/FACULTATE/LICENTA/LICENTA_APLICATIE
+Restart=on-failure
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

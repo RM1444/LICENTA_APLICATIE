@@ -1,0 +1,39 @@
+# Audio I/O
+PyAudio>=0.2.14
+numpy>=1.26
+scipy>=1.12
+
+# Wake word detection
+openwakeword>=0.6.0
+
+# Speech-to-text (local)
+faster-whisper>=1.0.0
+
+# Text-to-speech (local neural)
+piper-tts>=1.2.0
+
+# Fuzzy command matching (like linux-voice-control)
+thefuzz>=0.22.0
+
+# LLM orchestration
+ollama>=0.2.0
+
+# Optional cloud STT/TTS provider (activated by stt.provider / tts.provider = "groq")
+groq>=0.11.0
+python-dotenv>=1.0.0
+
+# Google Gemini (alternative LLM provider)
+google-generativeai>=0.8.0
+
+# GNOME / system integration
+PyGObject>=3.46
+
+# Configuration
+PyYAML>=6.0
+
+# Voice activity detection
+webrtcvad>=2.0.10
+
+# Testing
+pytest>=8.0
+pytest-mock>=3.12

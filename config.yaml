@@ -1,0 +1,79 @@
+# Fedora Voice Assistant - Runtime Configuration
+#
+# All tunable parameters live here. Source code must NOT hardcode these values.
+# Changes take effect on daemon restart.
+
+paths:
+  database: data/assistant.db
+  log_file: logs/assistant.log
+  models_root: assets/models
+  commands: commands.json
+
+audio:
+  sample_rate: 16000
+  channels: 1
+  sample_width_bytes: 2
+  # Chunk size for PyAudio reads (matches linux-voice-control default)
+  chunk_size: 1024
+  # Duration of the short clip used for hot-word detection (seconds)
+  hot_word_duration_s: 2.0
+  # Duration of the command recording after wake word (seconds)
+  record_duration_s: 3.0
+  # Amplitude threshold: clips whose peak is below this are silent and skipped.
+  # Range 0-32767. Raise if background noise triggers; lower if voice is missed.
+  speech_threshold: 4000
+  # Hard cap for Push-to-Talk recordings
+  max_command_duration_s: 10
+
+wakeword:
+  # Engine "whisper" = record short clips, transcribe with local faster-whisper,
+  # and text-match against hot_words. No neural wake-word model needed.
+  engine: whisper
+  hot_words:
+    - "hey jarvis"
+    - "hi jarvis"
+
+stt:
+  # provider: "local" = faster-whisper on CPU; "groq" = cloud (needs GROQ_API_KEY).
+  provider: groq
+  model_size: base.en
+  model_path: assets/models/whisper
+  device: cpu
+  compute_type: int8
+  beam_size: 5
+  language: en
+  vad_filter: true
+  groq_model: whisper-large-v3-turbo
+
+tts:
+  # provider: "local" = Piper/espeak-ng; "groq" = cloud PlayAI (needs GROQ_API_KEY).
+  provider: groq
+  engine: piper
+  voice_model: assets/models/piper/en_US-lessac-medium.onnx
+  voice_config: assets/models/piper/en_US-lessac-medium.onnx.json
+  sample_rate: 22050
+  groq_model: canopylabs/orpheus-v1-english
+  groq_voice: hannah
+
+brain:
+  # provider (runtime-switchable via UI dropdown):
+  #   "anthropic" (Claude, needs ANTHROPIC_API_KEY) - primary
+  #   "gemini"    (Google, needs GEMINI_API_KEY)    - alternative
+  #   "groq"      (fast cloud, needs GROQ_API_KEY)  - fallback
+  #   "ollama"    (local, slow on CPU)              - last-resort fallback
+  provider: gemini
+  anthropic_model: claude-haiku-4-5-20251001
+  gemini_model: gemini-2.0-flash
+  groq_model: llama-3.1-8b-instant
+  ollama_base_url: http://127.0.0.1:11434
+  ollama_model: llama3:8b
+
+commands:
+  # Fuzzy match thresholds (0-100)
+  match_threshold: 65
+  token_sort_threshold: 60
+
+logging:
+  level: INFO
+  max_bytes: 10485760
+  backup_count: 5

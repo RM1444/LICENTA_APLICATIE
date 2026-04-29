@@ -1,0 +1,6 @@
+# Fedora Voice Assistant - dev-machine NOPASSWD rule.
+# Points at the in-repo sudo_executor.py instead of /opt/...
+# Install with the one-liner in README / project docs; remove when you move
+# the project to /opt/fedora-voice-assistant.
+
+%wheel ALL=(ALL) NOPASSWD: /home/razvan/FACULTATE/LICENTA/LICENTA_APLICATIE/system/sudo_executor.py

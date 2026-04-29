@@ -1,0 +1,15 @@
+# Fedora Voice Assistant - Passwordless sudo for the whitelisted executor only.
+#
+# Install via:
+#   sudo visudo -cf /path/to/sudoers_template.txt    # validate first
+#   sudo cp /path/to/sudoers_template.txt /etc/sudoers.d/fedora-voice-assistant
+#   sudo chmod 0440 /etc/sudoers.d/fedora-voice-assistant
+#
+# Security scope:
+#   - Only members of the `wheel` group may invoke this.
+#   - Only one specific absolute path is granted NOPASSWD privileges.
+#   - That script (sudo_executor.py) enforces an internal argument whitelist.
+#   - Do NOT broaden this rule. The voice-biometric gate in the daemon is the
+#     security boundary, so the helper script must stay minimal and auditable.
+
+%wheel ALL=(ALL) NOPASSWD: /opt/fedora-voice-assistant/system/sudo_executor.py
